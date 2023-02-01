@@ -6,7 +6,7 @@
 /*   By: moouaamm <moouaamm@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/31 17:56:43 by moouaamm          #+#    #+#             */
-/*   Updated: 2023/01/30 19:27:29 by moouaamm         ###   ########.fr       */
+/*   Updated: 2023/01/31 21:50:02 by moouaamm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,7 +58,7 @@ int	main(int ac, char **arg)
 	int		*tab;
 
 	a = parsing(ac, arg);
-	if (a == NULL || ac == 2)
+	if (a == NULL || ac < 2)
 		return (0);
 	i = ft_lstsize(a);
 	if ((is_sorted(a) == 1))

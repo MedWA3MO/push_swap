@@ -6,7 +6,7 @@
 /*   By: moouaamm <moouaamm@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/21 18:32:46 by moouaamm          #+#    #+#             */
-/*   Updated: 2023/01/28 00:09:13 by moouaamm         ###   ########.fr       */
+/*   Updated: 2023/01/31 22:03:57 by moouaamm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ int	main(int ac, char **av)
 	char	*rule;
 
 	a = parsing(ac, av);
-	if (a == NULL || ac == 2)
+	if (a == NULL || ac < 2)
 		return (1);
 	rule = get_next_line(0);
 	while (rule)

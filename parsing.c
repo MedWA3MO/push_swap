@@ -6,7 +6,7 @@
 /*   By: moouaamm <moouaamm@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/02 01:09:16 by moouaamm          #+#    #+#             */
-/*   Updated: 2023/01/30 18:41:26 by moouaamm         ###   ########.fr       */
+/*   Updated: 2023/01/31 21:11:07 by moouaamm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,7 +82,7 @@ int	is_dup(char **str)
 
 t_list	*parsing(int ac, char **args)
 {
-	char	*my_args;
+	char	*arg;
 	int		i;
 	t_list	*tab;
 	t_list	*list;
@@ -90,20 +90,20 @@ t_list	*parsing(int ac, char **args)
 
 	tab = NULL;
 	i = -1;
-	my_args = ft_strjoin(ac, args, " ");
-	av = ft_split(my_args, ' ');
-	if (!is_digit(av) || check_int(av) == 0)
-		return (free_func(av), errorf(), NULL);
+	arg = ft_strjoin(ac, args, " ");
+	av = ft_split(arg, ' ');
+	if (!is_digit(av) || check_int(av) == 0 || is_dup(av))
+		return (free(arg), free_func(av), errorf(), NULL);
 	while (av[++i])
 		ft_lstadd_back(&tab, ft_lstnew(ft_atoi(av[i])));
 	list = tab;
 	while (list)
 	{
 		if (checdoubles(list->content, tab) == -1)
-			return (errorf(), NULL);
+			return (free_stack(&tab), errorf(), NULL);
 		list = list->next;
 	}
-	free(my_args);
+	free(arg);
 	free_func(av);
 	return (tab);
 }
